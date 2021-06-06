@@ -1,0 +1,15 @@
+api-version: "1.13"
+name: OreGen
+author: NeutralPlas
+version: @version@
+main: com.neutralplasma.oregen.OreGen
+
+softdepend:
+  - FabledSkyBlock
+  - ASkyBlock
+  - IridiumSkyBlock
+
+commands:
+  oregen:
+    usage: /<command>
+    description: "Get your generator level"

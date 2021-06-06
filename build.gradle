@@ -1,0 +1,40 @@
+import org.apache.tools.ant.filters.ReplaceTokens
+apply plugin: 'java'
+
+
+group 'OreGenerators'
+version '1.0.1-BETA'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    maven { url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/' }
+    maven { url = 'https://oss.sonatype.org/content/repositories/snapshots' }
+    maven{ url = "https://nexus.savagelabs.net/repository/maven-releases/" }
+    maven {
+        url "http://nexus.hc.to/content/repositories/pub_releases"
+    }
+
+    mavenLocal()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compileOnly group: 'com.iridium', name: 'IridiumSkyblock', version: '3.0.0'
+
+    implementation files('libs/SuperiorSkyblockAPI.jar')
+    compileOnly fileTree(dir: 'libs', include: '*.jar')
+
+
+    implementation "net.milkbowl.vault:VaultAPI:1.7"
+
+}
+
+processResources {
+
+    from (sourceSets.main.resources.srcDirs) {
+        include '**/*.yml'
+        filter ReplaceTokens, tokens: ["version": project.property("version")]
+    }
+}

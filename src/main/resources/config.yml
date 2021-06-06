@@ -1,0 +1,157 @@
+#================================================
+# Lang
+#================================================
+level-command:
+  noperm: "&cSorry but you don't have permission to execute this command."
+  useronly: "&cSorry but this command can only be executed by player!"
+  format:
+    - "&a================================="
+    - "&bLevel: &f{level}"
+    - "&bOres:"
+    - "&f{ores}"
+    - "&a================================="
+
+#================================================
+# Generators
+# Format:
+# <name>:
+#   ores:
+#      - <material>:<chance (double)>
+# Name is also permission: oregen.<name>
+#================================================
+ore-generators:
+  permission-based:
+    enabled: true
+    priority: 1
+
+    level-1: # lowest priority since it is at top.
+      ores:
+        - COBBLESTONE:85
+        - COAL_ORE:10
+        - IRON_ORE:5
+    level-2:
+      ores:
+        - COBBLESTONE:75
+        - COAL_ORE:20
+        - IRON_ORE:5
+    level-3:
+      ores:
+        - COBBLESTONE:70
+        - COAL_ORE:10
+        - IRON_ORE:10
+        - REDSTONE_ORE:10
+    level-4:
+      ores:
+        - COBBLESTONE:70
+        - COAL_ORE:15
+        - IRON_ORE:15
+        - REDSTONE_ORE:10
+    level-5:
+      ores:
+        - COBBLESTONE:50
+        - COAL_ORE:15
+        - IRON_ORE:15
+        - GOLD_ORE:10
+        - REDSTONE_ORE:10
+    level-6:
+      ores:
+        - COBBLESTONE:40
+        - COAL_ORE:15
+        - IRON_ORE:15
+        - GOLD_ORE:10
+        - DIAMOND_ORE:5
+        - REDSTONE_ORE:15
+    level-7:
+      ores:
+        - COBBLESTONE:40
+        - COAL_ORE:10
+        - IRON_ORE:15
+        - GOLD_ORE:10
+        - DIAMOND_ORE:5
+        - EMERALD_ORE:5
+        - REDSTONE_ORE:15
+    level-8:  #Highest priority since it is at the bottom.
+      ores:
+        - COBBLESTONE:20
+        - COAL_ORE:10
+        - IRON_ORE:15
+        - GOLD_ORE:15
+        - DIAMOND_ORE:10
+        - EMERALD_ORE:10
+        - REDSTONE_ORE:20
+#================================================
+# Island level based generators
+# same format as normal ones just add min-level:
+#================================================
+  level-based:
+    enabled: true
+    priority: 0
+    level-1:
+      min-level: 0
+      ores:
+        - COBBLESTONE:85
+        - COAL_ORE:10
+        - IRON_ORE:5
+    level-2:
+      min-level: 50
+      ores:
+        - COBBLESTONE:75
+        - COAL_ORE:20
+        - IRON_ORE:5
+    level-3:
+      min-level: 100
+      ores:
+        - COBBLESTONE:70
+        - COAL_ORE:10
+        - IRON_ORE:10
+        - REDSTONE_ORE:10
+    level-4:
+      min-level: 120
+      ores:
+        - COBBLESTONE:70
+        - COAL_ORE:15
+        - IRON_ORE:15
+        - REDSTONE_ORE:10
+    level-5:
+      min-level: 300
+      ores:
+        - COBBLESTONE:50
+        - COAL_ORE:15
+        - IRON_ORE:15
+        - GOLD_ORE:10
+        - REDSTONE_ORE:10
+    level-6:
+      min-level: 400
+      ores:
+        - COBBLESTONE:40
+        - COAL_ORE:15
+        - IRON_ORE:15
+        - GOLD_ORE:10
+        - DIAMOND_ORE:5
+        - REDSTONE_ORE:15
+    level-7:
+      min-level: 500
+      ores:
+        - COBBLESTONE:40
+        - COAL_ORE:10
+        - IRON_ORE:15
+        - GOLD_ORE:10
+        - DIAMOND_ORE:5
+        - EMERALD_ORE:5
+        - REDSTONE_ORE:15
+    level-8:
+      min-level: 600
+      ores:
+        - COBBLESTONE:20
+        - COAL_ORE:10
+        - IRON_ORE:15
+        - GOLD_ORE:15
+        - DIAMOND_ORE:10
+        - EMERALD_ORE:10
+        - REDSTONE_ORE:20
+
+#================================================
+# FallBack material if there is error
+# in any of the configurations
+#================================================
+fall-back-material: STONE
